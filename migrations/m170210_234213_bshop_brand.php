@@ -7,6 +7,7 @@ class m170210_234213_bshop_brand extends Migration
     public function up()
     {
 
+        return true;
     }
 
     public function down()

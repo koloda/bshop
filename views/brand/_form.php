@@ -4,22 +4,21 @@ use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
 use kartik\widgets\SwitchInput;
 use sjaakp\illustrated\Uploader;
-use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Category */
+/* @var $model app\models\Brand */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="category-form">
-<?php
-$form = ActiveForm::begin([
-            'options' => [
-                'enctype' => 'multipart/form-data'
-            ]
-        ]);
-?>
+<div class="brand-form">
 
+    <?php
+    $form = ActiveForm::begin([
+                'options' => [
+                    'enctype' => 'multipart/form-data'
+                ]
+    ]);
+    ?>
     <div class="col-md-8 col-sm-12">
         <div class="panel">
             <div class="panel-body">
@@ -27,25 +26,10 @@ $form = ActiveForm::begin([
                     <legend>
                     <?= Yii::t('bshop', 'General info') ?>
                     </legend>
-                    <?=
-                        $form->field($model, 'parent_id')
-                            ->widget(Select2::className(), [
-                                'data'  => $model->selectList($model->id),
-                                //@TODO: improve lang here
-                                'language'  => 'en',
-                                'options'   => [
-                                    'placeholder'   => Yii::t('bshop', 'Select parent category')
-                                ],
-                                'pluginOptions' => [
-                                    'allowClear' => true,
-                                ],
-                            ]);
-                    ?>
-
                     <?= $form->field($model, 'title')->textInput([
                         'maxlength' => true,
-                        'placeholder' => Yii::t('bshop', 'Please type category title, it\'s required')
-                        ]) ?>
+                        'placeholder' => Yii::t('bshop', 'Please type brand\'s name, it\'s required')
+                    ]) ?>
 
                     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
                 </fieldset>
@@ -72,17 +56,19 @@ $form = ActiveForm::begin([
                     <?=
                             $form->field($model, 'slug', [
                                 'addon' => [
-                                    'prepend' => ['content' => '<i class="glyphicon glyphicon-globe"></i> http://sitename.com/category/']
+                                    'prepend' => ['content' => '<i class="glyphicon glyphicon-globe"></i> http://sitename.com/brand/']
                                 ]
                             ])
                             ->widget(
-                                    \modernkernel\slugify\Slugify::className(), ['source' => '#category-title']
+                                    \modernkernel\slugify\Slugify::className(), ['source' => '#brand-title']
                             )
                     ?>
                 </fieldset>
             </div>
         </div>
+
     </div>
+
 
     <div class="col-md-4 col-sm-12">
         <div class="panel">

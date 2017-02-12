@@ -22,7 +22,11 @@
         "sjaakp/yii2-illustrated-behavior": "*",
         "romi45/yii2-seo-behavior": "~1.0",
         "2amigos/yii2-grid-view-library": "*",
-        "kartik-v/yii2-grid": "@dev"
+        "kartik-v/yii2-grid": "@dev",
+        "modernkernel/yii2-slugify": "*",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "kartik-v/yii2-widgets": "*",
+        "zxbodya/yii2-gallery-manager": "*@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

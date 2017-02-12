@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background: #eee;
 }
 
 .wrap {
@@ -112,4 +113,52 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+/* my admin-side enhancements */
+/*image-uploader*/
+.cropper, .sjaakp-preview, .sjaakp-slider, .uploader-aspect, .uploader-aspect label, .uploader-control {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+.sjaakp-preview {
+    border-radius: 3px;
+}
+.ui-widget-content .ui-slider-handle, .ui-slider-horizontal {
+    background-image: none;
+    border-radius: 2px;
+}
+
+/* gallery manager */
+.gallery-manager {
+    border: none;
+    box-shadow: none;
+}
+.gallery-manager .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.gallery-manager label.btn {
+    padding: 1px 10px 5px 10px;
+}
+.gallery-manager .photo {
+    height: 146px;
+    width: 128px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+.gallery-manager .photo .caption>p {
+    display: none;
+}
+.gallery-manager hr {
+    margin: 6px auto 8px auto;
+}
+.gallery-manager .btn-toolbar {
+    margin-left: auto;
+    margin-right: auto;
 }

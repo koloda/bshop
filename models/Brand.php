@@ -3,35 +3,31 @@
 namespace app\models;
 
 use Yii;
-use sjaakp\illustrated\Illustrated;
 use romi45\seoContent\components\SeoBehavior;
+use sjaakp\illustrated\Illustrated;
 
 /**
- * This is the model class for table "category".
+ * This is the model class for table "{{%brand}}".
  *
  * @property integer $id
- * @property integer $parent_id
  * @property string $title
  * @property string $description
- * @property string $created_at
- * @property string $updated_at
- * @property string $picture 
- * 
- * @property Product[] $products 
+ * @property integer $active
+ * @property string $slug
+ * @property string $picture
+ *
+ * @property Product[] $products
  */
-class Category extends \yii\db\ActiveRecord
+class Brand extends \yii\db\ActiveRecord
 {
-    /**
-    * @inheritdoc
-    */
-    public static function tableName()
-    {
-        return '{{%category}}';
-    }
-
     /**
      * @inheritdoc
      */
+    public static function tableName()
+    {
+        return '{{%brand}}';
+    }
+    
     public function behaviors()
     {
         return [
@@ -45,13 +41,11 @@ class Category extends \yii\db\ActiveRecord
                         'allowTooSmall'  => true
                     ],
                 ],
-                'directory' => '@app/web/uploads/images/shop/category',
+                'directory' => '@app/web/uploads/images/shop/brand',
                 'illustrationDirectory' => 'uploads/images/shop'
             ],
             'seo' => [
                 'class' => SeoBehavior::className(),
-
-                // This is default values. Usually you can not specify it
                 'titleAttribute' => 'seoTitle',
                 'keywordsAttribute' => 'seoKeywords',
                 'descriptionAttribute' => 'seoDescription'
@@ -65,12 +59,11 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id'], 'integer'],
-            [['title', 'slug'], 'required'],
+            [['title', 'slug', 'active'], 'required'],
             [['description'], 'string'],
-            [['created_at', 'updated_at'], 'safe'],
-            [['title', 'picture', 'slug'], 'string', 'max' => 255],
-            [['seoTitle', 'seoKeywords', 'seoDescription'], 'safe'],
+            [['active'], 'integer'],
+            [['picture', 'title', 'slug'], 'string', 'max' => 255],
+            [['title'], 'unique'],
             [['slug'], 'unique'],
         ];
     }
@@ -82,43 +75,28 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('bshop', 'ID'),
-            'parent_id' => Yii::t('bshop', 'Parent category'),
-            'title' => Yii::t('bshop', 'Title'),
+            'title' => Yii::t('bshop', 'Brand Name'),
             'description' => Yii::t('bshop', 'Description'),
-            'created_at' => Yii::t('bshop', 'Created At'),
-            'updated_at' => Yii::t('bshop', 'Updated At'),
-            'picture' => Yii::t('bshop', 'Picture'), 
+            'active' => Yii::t('bshop', 'Active'),
+            'slug' => Yii::t('bshop', 'Slug'),
+            'picture' => Yii::t('bshop', 'Picture'),
         ];
-    }
-    
-    /**
-    * @return \yii\db\ActiveQuery
-    */
-    public function getProducts()
-    {
-        return $this->hasMany(Product::className(), ['category_id' => 'id']);
     }
 
     /**
-    * @return \yii\db\ActiveQuery
-    */
-    public function getParent() 
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProducts()
     {
-        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
+        return $this->hasMany(Product::className(), ['brand_id' => 'id']);
     }
 
     public static function selectList($except = 0)
     {
-        return Category::find()
+        return Brand::find()
             ->select(['title'])
             ->where('id <> ' . (int)$except)
             ->indexBy('id')
             ->column();
-    }
-
-    //@TODO: implement this
-    public function search() 
-    {
-        
     }
 }
