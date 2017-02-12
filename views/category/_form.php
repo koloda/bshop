@@ -20,7 +20,7 @@ $form = ActiveForm::begin([
         ]);
 ?>
 
-    <div class="col-md-8 col-sm-12">
+    <div class="col-sm-7 col-xs-12">
         <div class="panel">
             <div class="panel-body">
                 <fieldset>
@@ -84,7 +84,7 @@ $form = ActiveForm::begin([
         </div>
     </div>
 
-    <div class="col-md-4 col-sm-12">
+    <div class="col-sm-5 col-xs-12">
         <div class="panel">
             <div class="panel-body">
                 <?= $form->field($model, 'active')->widget(SwitchInput::className()) ?>

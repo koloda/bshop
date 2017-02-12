@@ -24,7 +24,7 @@ use zxbodya\yii2\galleryManager\GalleryManager;
     ]);
     ?>
 
-    <div class="col-md-7 col-sm-12">
+    <div class="col-sm-7 col-xs-12">
         <div class="panel">
             <div class="panel-body">
                 <fieldset>
@@ -117,7 +117,7 @@ use zxbodya\yii2\galleryManager\GalleryManager;
         </div>
     </div>
 
-    <div class="col-md-5 col-sm-12">
+    <div class="col-sm-5 col-xs-12">
         <div class="panel">
             <div class="panel-body">
                 <div class="col-xs-6">

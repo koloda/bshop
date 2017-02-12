@@ -162,3 +162,17 @@ a.desc:after {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* properties and their values */
+#property-values-table th {
+    border: none;
+}
+#property-values-table .form-group {
+    margin-bottom: 0px;
+}
+#property-values-table td {
+    padding: 10px;
+    padding-top: 15px;
+    background: #fff;
+}
+
