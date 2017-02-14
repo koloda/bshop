@@ -1,14 +1,8 @@
 html,
 body {
     height: 100%;
-    background: #eee;
-}
-
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+    background: rgb(241, 242, 246);
+    background-color: rgb(241, 242, 246);
 }
 
 .wrap > .container {
@@ -17,7 +11,7 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
+    /*background-color: #f5f5f5;*/
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }

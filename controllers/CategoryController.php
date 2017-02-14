@@ -35,13 +35,15 @@ class CategoryController extends Controller
      */
     public function actionIndex() 
     {
+
         $dataProvider = new ActiveDataProvider([
             'query' => Category::find(),
         ]);
 
-        return $this->render('index', [
+        echo  $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+        exit;
     }
 
     /**
@@ -51,9 +53,9 @@ class CategoryController extends Controller
      */
     public function actionView($id) 
     {
-        return $this->render('view', [
+        echo $this->render('view', [
             'model' => $this->findModel($id),
-        ]);
+        ]);exit;
     }
 
     /**
@@ -68,9 +70,9 @@ class CategoryController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
-            return $this->render('create', [
+            echo $this->render('create', [
                 'model' => $model,
-            ]);
+            ]);exit;
         }
     }
 
