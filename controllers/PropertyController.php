@@ -177,7 +177,6 @@ class PropertyController extends Controller
                             $v->save(false);
                         } else {
                             $transaction->rollBack();
-                        
                         }
                     }
 
@@ -187,7 +186,7 @@ class PropertyController extends Controller
 
                     if ($transaction->isActive) {
                         $transaction->commit();
-                        $this->redirect(['index']);
+                        return $this->redirect(['index']);
                     }
                 } catch (Exception $e) {
                     $transaction->rollBack();

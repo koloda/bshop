@@ -46,7 +46,7 @@ class Category extends \yii\db\ActiveRecord
                     ],
                 ],
                 'directory' => '@app/web/uploads/images/shop/category',
-                'illustrationDirectory' => 'uploads/images/shop'
+                'illustrationDirectory' => 'application/modules/bshop/web/uploads/images/shop'
             ],
             'seo' => [
                 'class' => SeoBehavior::className(),
@@ -72,6 +72,7 @@ class Category extends \yii\db\ActiveRecord
             [['title', 'picture', 'slug'], 'string', 'max' => 255],
             [['seoTitle', 'seoKeywords', 'seoDescription'], 'safe'],
             [['slug'], 'unique'],
+//            [['cms_token'], 'safe']
         ];
     }
 

@@ -39,14 +39,15 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'baseUrl'   => '/admin/components/cp/bshop',
             'rules' => [
             ],
         ],
-        */
+        
         'i18n' => [
             'translations' => [
                 '*' => [

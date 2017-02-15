@@ -125,6 +125,9 @@ a.desc:after {
     background-image: none;
     border-radius: 2px;
 }
+.sjaakp-preview.sjaakp-state-loaded {
+    border-color: #8cc152;
+}
 
 /* gallery manager */
 .gallery-manager {
@@ -170,3 +173,17 @@ a.desc:after {
     background: #fff;
 }
 
+/* bootstrap-switcher */
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+    color: #fff;
+    background: #3bafda;
+}
+
+/* select2 */
+.select2-container--krajee .select2-results__option--highlighted[aria-selected] {
+    background-color: #3bafda;
+    color: #fff;
+}
+.has-success.select2-container--krajee .select2-dropdown, .has-success .select2-container--krajee .select2-selection {
+    border-color: #8cc152;
+}

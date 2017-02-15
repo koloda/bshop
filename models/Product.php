@@ -55,7 +55,7 @@ class Product extends \yii\db\ActiveRecord
                     ],
                 ],
                 'directory' => '@app/web/uploads/images/shop/product',
-                'illustrationDirectory' => 'uploads/images/shop'
+                'illustrationDirectory' => 'application/modules/bshop/web/uploads/images/shop'
             ],
             'seo' => [
                 'class' => SeoBehavior::className(),
@@ -67,8 +67,8 @@ class Product extends \yii\db\ActiveRecord
                 'class' => GalleryBehavior::className(),
                 'type' => 'product',
                 'extension' => 'png',
-                'directory' => Yii::getAlias('@webroot') . '/uploads/images/shop/product/gallery',
-                'url' => Yii::getAlias('@web') . '/uploads/images/shop/product/gallery',
+                'directory' => Yii::getAlias('@webroot') . '/application/modules/bshop/uploads/images/shop/product/gallery',
+                'url' => Yii::getAlias('@web') . '/application/modules/bshop/uploads/images/shop/product/gallery',
                 'versions' => [
                     'xs' => function ($img) {
                         /** @var \Imagine\Image\ImageInterface $img */

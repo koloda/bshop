@@ -42,7 +42,7 @@ class Brand extends \yii\db\ActiveRecord
                     ],
                 ],
                 'directory' => '@app/web/uploads/images/shop/brand',
-                'illustrationDirectory' => 'uploads/images/shop'
+                'illustrationDirectory' => 'application/modules/bshop/web/uploads/images/shop'
             ],
             'seo' => [
                 'class' => SeoBehavior::className(),

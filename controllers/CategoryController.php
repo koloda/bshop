@@ -40,10 +40,9 @@ class CategoryController extends Controller
             'query' => Category::find(),
         ]);
 
-        echo  $this->render('index', [
+        return  $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
-        exit;
     }
 
     /**
@@ -53,9 +52,9 @@ class CategoryController extends Controller
      */
     public function actionView($id) 
     {
-        echo $this->render('view', [
+        return $this->render('view', [
             'model' => $this->findModel($id),
-        ]);exit;
+        ]);
     }
 
     /**
@@ -66,13 +65,12 @@ class CategoryController extends Controller
     public function actionCreate() 
     {
         $model = new Category();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect('/admin/components/cp/bshop/category');
         } else {
-            echo $this->render('create', [
+            return $this->render('create', [
                 'model' => $model,
-            ]);exit;
+            ]);
         }
     }
 
@@ -87,7 +85,7 @@ class CategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect('/admin/components/cp/bshop/category');
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -105,7 +103,7 @@ class CategoryController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect('/admin/components/cp/bshop/category');
     }
 
     /**

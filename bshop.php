@@ -1,21 +1,57 @@
 <?php 
 
+require_once('bootstrap.php');
+
 use CMSFactory\assetManager;
 use CMSFactory\Events;
 
+use Yii;
+use app\models\Category;
+use yii\data\ActiveDataProvider;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+
+
 
 class Bshop {
-    public function __construct() {
-        require_once('bootstrap.php');    
+    public function getViewPath() {
+        return Yii::getAlias('@app/views/category');
+    }
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
     }
 
-    public function index() {
-        ini_set('display_errors', true);
-        error_reporting(E_ALL^E_NOTICE);
-        
-        echo 'B-Shop Alive!!!';
-        Yii::$app->runAction('product');
-        //exit;
+    /**
+     * Lists all Brand models.
+     * @return mixed
+     */
+    public function index()
+    {
+        Yii::$app->runAction('category/index');
+        //Yii::$app->controller = $this;
+        //var_dump(Yii::$app->controller); exit;
+    
+        //echo Yii::getAlias('@app/views');exit;
+        $dataProvider = new ActiveDataProvider([
+            'query' => Category::find(),
+        ]);
+
+        echo  $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
+        exit;
     }
     
     public function category() {

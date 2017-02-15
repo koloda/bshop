@@ -13,7 +13,6 @@ use yii\jui\JuiAsset;
 ?>
 
 <div class="property-forma">
-
     <?php
     $form = ActiveForm::begin([
                 'options' => ['id' => 'property-form']
@@ -109,7 +108,8 @@ use yii\jui\JuiAsset;
     <?= Html::submitButton($model->isNewRecord ? Yii::t('bshop', 'Create') : Yii::t('bshop', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <?= form_csrf() ?>
+<?php ActiveForm::end(); ?>
 </div>
 
 

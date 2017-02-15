@@ -15,10 +15,10 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot/web';
-    public $baseUrl = '@web/web';
+    public $basePath = '@webroot/application/modules/bshop/web';
+    public $baseUrl = '@web/application/modules/bshop/web';
     public $css = [
-        '/css/bootflat.min.css',
+        'css/bootflat.min.css',
         'css/site.css',
         //'css/AdminLTE.css',
         //'css/paper.bootstrap.min.css',
