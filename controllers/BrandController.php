@@ -14,6 +14,17 @@ use yii\filters\VerbFilter;
  */
 class BrandController extends Controller
 {
+    public function actions()
+    {
+        return [
+            'toggle-update'=>[
+                'class'=>'\dixonstarter\togglecolumn\actions\ToggleAction',
+                'modelClass'=> Brand::className(),
+                'attribute' => 'active'
+            ]
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -66,7 +77,7 @@ class BrandController extends Controller
         $model = new Brand();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['/brand']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +96,7 @@ class BrandController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['/brand']);
         } else {
             return $this->render('update', [
                 'model' => $model,

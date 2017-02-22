@@ -27,7 +27,8 @@
         "kartik-v/yii2-widget-select2": "@dev",
         "kartik-v/yii2-widgets": "*",
         "zxbodya/yii2-gallery-manager": "*@dev",
-        "wbraganca/yii2-dynamicform": "dev-master"
+        "wbraganca/yii2-dynamicform": "dev-master",
+        "dixonstarter/yii2-toggle-column": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

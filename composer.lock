@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3afa5f0c305ad85a143d5bac6b0812a8",
+    "content-hash": "8fd1bc327442100525e092b1d488827a",
     "packages": [
         {
             "name": "2amigos/yii2-dosamigos-asset-bundle",
@@ -609,6 +609,48 @@
                 "markdown-extra"
             ],
             "time": "2016-09-14T20:40:20+00:00"
+        },
+        {
+            "name": "dixonstarter/yii2-toggle-column",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dixonsatit/yii2-toggle-column.git",
+                "reference": "b0a288f42838b835a621aa5c16a8af1aa6f9c6ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dixonsatit/yii2-toggle-column/zipball/b0a288f42838b835a621aa5c16a8af1aa6f9c6ae",
+                "reference": "b0a288f42838b835a621aa5c16a8af1aa6f9c6ae",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dixonstarter\\togglecolumn\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sathit Seethaphon",
+                    "email": "dixonsatit@gmail.com"
+                }
+            ],
+            "description": "yii2 toggle column for update in gridview",
+            "keywords": [
+                "extension",
+                "gridview",
+                "toggle column",
+                "yii2"
+            ],
+            "time": "2016-04-09T15:05:33+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2386,7 +2428,7 @@
                 "yii2 dynamic form",
                 "yii2-dynamicform"
             ],
-            "time": "2016-09-29T16:38:47+00:00"
+            "time": "2016-09-29 16:38:47"
         },
         {
             "name": "yiisoft/yii2",
@@ -2777,7 +2819,7 @@
                 "image",
                 "yii2"
             ],
-            "time": "2016-12-08T18:34:30+00:00"
+            "time": "2016-12-08 18:34:30"
         }
     ],
     "packages-dev": [

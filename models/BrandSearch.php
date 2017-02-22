@@ -70,4 +70,11 @@ class BrandSearch extends Brand
 
         return $dataProvider;
     }
+
+    public function getItemFilter() {
+        return [
+            '1' => Yii::t('bshop', 'Active'),
+            '0' => Yii::t('bshop', 'Disabled')
+        ];
+    }
 }

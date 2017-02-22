@@ -187,3 +187,30 @@ a.desc:after {
 .has-success.select2-container--krajee .select2-dropdown, .has-success .select2-container--krajee .select2-selection {
     border-color: #8cc152;
 }
+
+/*  admin-side panels */
+.panel-heading>p {
+    width: 100%;
+    padding: 0;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+}
+
+.table-responsive {
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.table > thead > tr > th, .kv-merged-header {
+    border-bottom-width: 1px !important;
+}
+
+/* modal */
+.bootstrap-dialog.type-warning .modal-header {
+    background-color: #fff;
+}
+
+.bootstrap-dialog .bootstrap-dialog-title {
+    color: #f6bb42;
+}
