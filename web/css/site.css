@@ -6,7 +6,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 10px 15px 20px;
 }
 
 .footer {
@@ -213,4 +213,56 @@ a.desc:after {
 
 .bootstrap-dialog .bootstrap-dialog-title {
     color: #f6bb42;
+}
+
+
+
+
+
+
+/*  IMAGECMS COMPAT CSS */
+/*admin-header*/
+#bshop-admin-navbar {
+    min-height: 43px;
+    height: 43px;
+    background: #4d565c;
+    border-top: 1px solid #616b74;
+    border-radius: 0px;
+}
+#bshop-admin-navbar li a {
+    border-left: 1px solid #6f787f;
+    color: #fff;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    transition: all 0.3s ease-in-out;
+}
+#bshop-admin-navbar li a:hover {
+    background-color: #5b656c;
+}
+.bshop-menu-a-icon {
+    height: 50px;
+    display: block;
+    padding-top: 15px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+.bshop-menu-a-icon:hover, .bshop-menu-a-icon[aria-expanded='true']  {
+    background-color: #434a54;
+}
+
+header.imgcms ul.dropdown-menu {
+    margin-top: 0px;
+}
+
+header.imgcms {
+    position: relative;
+    z-index: 10;
+    height: 50px;
+    background-color: #30373a;
+}
+header.imgcms .logo>img {
+    margin-top: 13px;
 }

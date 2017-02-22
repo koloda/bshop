@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('bshop', 'Properties');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="property-index">
+<div class="property-index col-xs-12">
     <div class="panel">
         <div class="panel-heading">
             <p><?= Html::encode($this->title) ?>

@@ -11,7 +11,7 @@ use kartik\grid\GridView;
 $this->title = Yii::t('bshop', 'Brands');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="brand-index">
+<div class="brand-index col-xs-12">
     <div class="panel">
 
         <div class="panel-heading">
