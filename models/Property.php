@@ -13,7 +13,7 @@ use Yii;
  *
  * @property PropertyValue[] $propertyValues
  */
-class Property extends \yii\db\ActiveRecord
+class Property extends AActiveRecord
 {
     /**
      * @inheritdoc

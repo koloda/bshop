@@ -19,6 +19,17 @@ use yii\widgets\ActiveForm;
  */
 class PropertyController extends Controller
 {
+    public function actions()
+    {
+        return [
+            'toggle-update'=>[
+                'class'=>'\dixonstarter\togglecolumn\actions\ToggleAction',
+                'modelClass'=> Property::className(),
+                'attribute' => 'active'
+            ]
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -146,7 +157,7 @@ class PropertyController extends Controller
                 if ($p['id']) {
                     $loadedModel = PropertyValue::findOne((int)$p['id']);
                 }
-                
+
                 $loadedModel->value = $p['value'];
                 $loadedModel->position = $index;
                 $loadedModel->property_id = $model->id;

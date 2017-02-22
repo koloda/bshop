@@ -18,10 +18,8 @@ use sjaakp\illustrated\Illustrated;
  *
  * @property Product[] $products
  */
-class Brand extends \yii\db\ActiveRecord implements \dixonstarter\togglecolumn\ToggleActionInterface
+class Brand extends AActiveRecord
 {
-    use \dixonstarter\togglecolumn\ToggleActionTrait;
-
     /**
      * @inheritdoc
      */
@@ -100,12 +98,5 @@ class Brand extends \yii\db\ActiveRecord implements \dixonstarter\togglecolumn\T
             ->where('id <> ' . (int)$except)
             ->indexBy('id')
             ->column();
-    }
-
-    public function getToggleItems() {
-        return [
-            'on'    => ['value' => 1, 'label' => Yii::t('bshop', 'Active')],
-            'off'   => ['value' => 0, 'label' => Yii::t('bshop', 'Disabled')]
-        ];
     }
 }
