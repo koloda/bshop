@@ -15,11 +15,11 @@ use romi45\seoContent\components\SeoBehavior;
  * @property string $description
  * @property string $created_at
  * @property string $updated_at
- * @property string $picture 
- * 
- * @property Product[] $products 
+ * @property string $picture
+ *
+ * @property Product[] $products
  */
-class Category extends \yii\db\ActiveRecord
+class Category extends AActiveRecord
 {
     /**
     * @inheritdoc
@@ -68,7 +68,7 @@ class Category extends \yii\db\ActiveRecord
             [['parent_id'], 'integer'],
             [['title', 'slug'], 'required'],
             [['description'], 'string'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at', 'active'], 'safe'],
             [['title', 'picture', 'slug'], 'string', 'max' => 255],
             [['seoTitle', 'seoKeywords', 'seoDescription'], 'safe'],
             [['slug'], 'unique'],
@@ -91,7 +91,7 @@ class Category extends \yii\db\ActiveRecord
             'picture' => Yii::t('bshop', 'Picture'), 
         ];
     }
-    
+
     /**
     * @return \yii\db\ActiveQuery
     */
@@ -103,9 +103,14 @@ class Category extends \yii\db\ActiveRecord
     /**
     * @return \yii\db\ActiveQuery
     */
-    public function getParent() 
+    public function getParent()
     {
         return $this->hasOne(Category::className(), ['id' => 'parent_id']);
+    }
+
+    public function getParentTitle()
+    {
+        return $this->parent->title;
     }
 
     public static function selectList($except = 0)
@@ -115,11 +120,5 @@ class Category extends \yii\db\ActiveRecord
             ->where('id <> ' . (int)$except)
             ->indexBy('id')
             ->column();
-    }
-
-    //@TODO: implement this
-    public function search() 
-    {
-        
     }
 }

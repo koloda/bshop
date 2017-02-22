@@ -11,14 +11,18 @@ use app\models\Category;
  */
 class CategorySearch extends Category
 {
+    public function attributes()
+    {
+        return ['title', 'parentTitle'];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'parent_id'], 'integer'],
-            [['title', 'description', 'created_at', 'updated_at', 'picture'], 'safe'],
+            [['title', 'parentTitle'], 'safe'],
         ];
     }
 
@@ -56,17 +60,19 @@ class CategorySearch extends Category
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'parent_id' => $this->parent_id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ]);
+        $query->joinWith(['parent' => function($query) {
+            $query->from(['parent' => parent::tableName()]);
+        }]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'picture', $this->picture]);
+        // grid filtering conditions
+        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'parent.title', $this->parentTitle]);
+
+
+        $dataProvider->sort->attributes['parentTitle'] = [
+            'asc' => ['parent.title' => SORT_ASC],
+            'desc' => ['parent.title' => SORT_DESC],
+        ];
 
         return $dataProvider;
     }
