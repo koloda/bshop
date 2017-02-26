@@ -12,23 +12,26 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.5",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
         "2amigos/yii2-translateable-behavior": "*",
         "sjaakp/yii2-illustrated-behavior": "*",
-        "romi45/yii2-seo-behavior": "~1.0",
+        "romi45/yii2-seo-behavior": "*",
         "2amigos/yii2-grid-view-library": "*",
         "kartik-v/yii2-grid": "@dev",
         "modernkernel/yii2-slugify": "*",
         "kartik-v/yii2-widget-select2": "@dev",
         "kartik-v/yii2-widgets": "*",
+	"kartik-v/yii2-mpdf": "@dev",
         "zxbodya/yii2-gallery-manager": "*@dev",
         "wbraganca/yii2-dynamicform": "dev-master",
-        "dixonstarter/yii2-toggle-column": "*"
+        "dixonstarter/yii2-toggle-column": "*",
+	"pistol88/yii2-cart": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

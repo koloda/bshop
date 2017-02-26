@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 require_once('bootstrap.php');
 
-class Bshop extends BaseAdminController
+class Cart extends BaseAdminController
 {
     private $path = null;
 
@@ -20,6 +20,25 @@ class Bshop extends BaseAdminController
      */
     public function index()
     {
+        echo $this->path;
+        $response = Yii::$app->runAction($this->path, $this->input->get());
+
+        if (is_string($response)) {
+//            \CMSFactory\assetManager::create()
+//                ->setData(
+//                    ['content' => $response]
+//                )
+//            ->render('template/layout/main');
+            echo $response;
+        }
+
+        if (is_object($response)) {
+            $response->send();
+        }
+    }
+    
+    public  function element() {
+        echo $this->path;
         $response = Yii::$app->runAction($this->path, $this->input->get());
 
         if (is_string($response)) {

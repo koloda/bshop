@@ -56,6 +56,13 @@ $config = [
                 ],
             ],
         ],
+        'cart' => [
+            'class' => 'pistol88\cart\Cart',
+            //@TODO: remove hardcoded currency
+            'currency' => 'uah', //Валюта
+            'currencyPosition' => 'after', //after или before (позиция значка валюты относительно цены)
+            'priceFormat' => [2,'.', ''], //Форма цены
+        ],
     ],
     'modules'   => [
         'gridview'  => [
@@ -65,7 +72,10 @@ $config = [
                 'basePath' => '@kvgrid/messages',
                 'forceTranslation' => true
             ]
-        ]
+        ],
+        'cart' => [
+            'class' => 'pistol88\cart\Module',
+        ],
     ],
     'params' => $params,
 ];

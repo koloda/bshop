@@ -28,8 +28,9 @@ use zxbodya\yii2\galleryManager\GalleryBehavior;
  * @property Category $category
  * @property Brand $brand
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends \yii\db\ActiveRecord implements \pistol88\cart\interfaces\CartElement
 {
+    use CartElementTrait;
     /**
      * @inheritdoc
      */
