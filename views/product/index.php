@@ -1,44 +1,67 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\grid\GridView;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('bshop', 'Products');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="product-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="product-index col-xs-12">
+    <div class="panel">
+        <div class="panel-heading">
+            <p><?= Html::encode($this->title) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ' . Yii::t('bshop', 'Create Product'), ['/product/create'], ['class' => 'btn btn-success pull-right']) ?>
+            </p>
+        </div>
+    </div>
 
-    <p>
-        <?= Html::a(Yii::t('bshop', 'Create Product'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="panel">
+        <div class="panel-body">
+            <?php Pjax::begin(); ?>
+            <?= GridView::widget([
+                'bordered'  => false,
+                'layout' => '{items}{summary}{pager}',
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
 
-            'id',
-            'title',
-            'description:ntext',
-            'sku',
-            'price',
-            // 'picture',
-            // 'category_id',
-            // 'active',
-            // 'brand_id',
-            // 'gallery_id',
-            // 'created',
-            // 'updated',
-            // 'slug',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-<?php Pjax::end(); ?></div>
+                'columns' => [
+                    [
+                        'attribute' => 'title',
+                        'content' => function ($model) {
+                            $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
+                            return Html::a($text, ['/product/update', 'id' => $model->id]);
+                        }
+                    ],
+                    [
+                        'attribute' => 'categoryTitle',
+                        'label'    => Yii::t('bshop', 'Category'),
+                    ],
+                    [
+                        'attribute' => 'brandTitle',
+                        'label'    => Yii::t('bshop', 'Brand'),
+                    ],
+                    [
+                        'options'   => ['class' => 'col-sm-1'],
+                        'class' => \dosamigos\grid\EditableColumn::className(),
+                        'attribute' => 'price',
+                        'url' => ['editable'],
+                        'type' => 'number',
+                        'editableOptions' => [
+                            'mode' => 'inline',
+                        ]
+                    ],
+                    [
+                        'class' => 'kartik\grid\ActionColumn',
+                        'template' => '{delete}'
+                    ],
+                ],
+            ]); ?>
+            <?php Pjax::end(); ?>
+        </div>
+    </div>
+</div>

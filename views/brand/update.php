@@ -8,10 +8,8 @@ use yii\helpers\Html;
 $this->title = Yii::t('bshop', 'Update {modelClass}: ', [
     'modelClass' => 'Brand',
 ]) . $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('bshop', 'Brands'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('bshop', 'Update');
 ?>
+
 <div class="brand-update">
     <div class="col-xs-12">
         <div class="panel">

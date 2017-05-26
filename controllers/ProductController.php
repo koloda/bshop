@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use zxbodya\yii2\galleryManager\GalleryManagerAction;
+use dosamigos\editable\EditableAction;
+use dosamigos\grid\ToggleAction;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -27,6 +29,17 @@ class ProductController extends Controller
                    'product' => Product::className()
                ]
            ],
+            'editable' => [
+                'class' => EditableAction::className(),
+                'modelClass' => Product::className(),
+                'forceCreate' => false
+            ],
+            'toggle' => [
+                'class' => ToggleAction::className(),
+                'modelClass' => Product::className(),
+                'onValue' => 1,
+                'offValue' => 0
+            ],
         ];
     }
 

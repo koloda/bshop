@@ -114,8 +114,8 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\cart\interfaces\
             [['title', 'price', 'slug'], 'required'],
             [['description'], 'string'],
             [['price'], 'number'],
-            [['category_id', 'available', 'active', 'brand_id', 'gallery_id'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['category_id', 'brand_id', 'gallery_id'], 'integer'],
+            [['created_at', 'updated_at', 'available', 'active'], 'safe'],
             [['title', 'slug'], 'string', 'max' => 256],
             [['sku'], 'string', 'max' => 64],
             [['picture'], 'string', 'max' => 255],
@@ -161,5 +161,21 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\cart\interfaces\
     public function getBrand()
     {
         return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategoryTitle()
+    {
+        return $this->category->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBrandTitle()
+    {
+        return $this->brand->title;
     }
 }

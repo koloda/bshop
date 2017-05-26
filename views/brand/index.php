@@ -9,17 +9,18 @@ use kartik\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('bshop', 'Brands');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="brand-index col-xs-12">
     <div class="panel">
-
         <div class="panel-heading">
             <p><?= Html::encode($this->title) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ' . Yii::t('bshop', 'Create Brand'), ['/brand/create'], ['class' => 'btn btn-success pull-right']) ?>
             </p>
         </div>
+    </div>
 
+    <div class="panel">
         <div class="panel-body">
             <?php Pjax::begin(); ?>
             <?=

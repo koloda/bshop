@@ -72,7 +72,6 @@ class Category extends AActiveRecord
             [['title', 'picture', 'slug'], 'string', 'max' => 255],
             [['seoTitle', 'seoKeywords', 'seoDescription'], 'safe'],
             [['slug'], 'unique'],
-//            [['cms_token'], 'safe']
         ];
     }
 
@@ -88,7 +87,7 @@ class Category extends AActiveRecord
             'description' => Yii::t('bshop', 'Description'),
             'created_at' => Yii::t('bshop', 'Created At'),
             'updated_at' => Yii::t('bshop', 'Updated At'),
-            'picture' => Yii::t('bshop', 'Picture'), 
+            'picture' => Yii::t('bshop', 'Picture'),
         ];
     }
 
@@ -108,6 +107,9 @@ class Category extends AActiveRecord
         return $this->hasOne(Category::className(), ['id' => 'parent_id']);
     }
 
+    /**
+    * @return \yii\db\ActiveQuery
+    */
     public function getParentTitle()
     {
         return $this->parent->title;

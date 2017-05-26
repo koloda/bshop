@@ -7,9 +7,8 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Brand */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('bshop', 'Brands'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="brand-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

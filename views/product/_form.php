@@ -17,12 +17,11 @@ use zxbodya\yii2\galleryManager\GalleryManager;
 <div class="product-form">
 
     <?php
-    echo Yii::getAlias('@webroot');
-    $form = ActiveForm::begin([
-                'options' => [
-                    'enctype' => 'multipart/form-data'
-                ]
-    ]);
+        $form = ActiveForm::begin([
+            'options' => [
+                'enctype' => 'multipart/form-data'
+            ]
+        ]);
     ?>
 
     <div class="col-sm-7 col-xs-12">
@@ -33,18 +32,18 @@ use zxbodya\yii2\galleryManager\GalleryManager;
                     <?= Yii::t('bshop', 'General info') ?>
                     </legend>
                     <?=
-                            $form->field($model, 'category_id')
+                        $form->field($model, 'category_id')
                             ->widget(Select2::className(), [
-                                'data' => Category::selectList(),
-                                //@TODO: improve lang here
-                                'language' => 'en',
-                                'options' => [
-                                    'placeholder' => Yii::t('bshop', 'Select category')
-                                ],
-                                'pluginOptions' => [
-                                    'allowClear' => true,
-                                ],
-                    ]);
+                            'data' => Category::selectList(),
+                            //@TODO: improve lang here
+                            'language' => 'en',
+                            'options' => [
+                                'placeholder' => Yii::t('bshop', 'Select category')
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                            ],
+                        ]);
                     ?>
 
                     <?= $form->field($model, 'title')->textInput([
@@ -124,7 +123,7 @@ use zxbodya\yii2\galleryManager\GalleryManager;
                 <div class="col-xs-6">
                     <?= $form->field($model, 'active')->widget(SwitchInput::className()) ?>
                 </div>
-            
+
                 <div class="col-xs-6">
                     <?= $form->field($model, 'available')->widget(SwitchInput::className()) ?>
                 </div>
@@ -192,7 +191,7 @@ use zxbodya\yii2\galleryManager\GalleryManager;
     <div class="form-group col-sm-12">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('bshop', 'Create') : Yii::t('bshop', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-    
+
     <?= form_csrf() ?>
 <?php ActiveForm::end(); ?>
 

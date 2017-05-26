@@ -7,12 +7,19 @@ use yii\helpers\Html;
 /* @var $model app\models\Product */
 
 $this->title = Yii::t('bshop', 'Create Product');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('bshop', 'Products'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="product-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="col-xs-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <p><?= Html::encode($this->title) ?>
+                <?= Html::a('<i class="glyphicon glyphicon-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/product'], ['class' => 'btn btn-default pull-right']) ?>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <?= $this->render('_form', [
         'model' => $model,

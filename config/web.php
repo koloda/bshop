@@ -47,7 +47,10 @@ $config = [
             'rules' => [
             ],
         ],
-
+        'request'   => [
+            'enableCsrfValidation' => false,
+            'cookieValidationKey' => 'hi475g7r6t45gy59787',
+        ],
         'i18n' => [
             'translations' => [
                 '*' => [
