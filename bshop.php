@@ -38,6 +38,6 @@ class Bshop extends BaseAdminController
 
     public function category()
     {
-        echo '333333';
+        
     }
 }

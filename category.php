@@ -13,7 +13,6 @@ class Category extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-
         if (strpos($_SERVER['PATH_INFO'], '/bshop/category/list')) {
             $this->viewList();
         } else {

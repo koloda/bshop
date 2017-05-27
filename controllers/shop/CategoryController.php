@@ -2,10 +2,10 @@
 
 namespace app\controllers\shop;
 
-use yii\web\Controller;
+use app\controllers\shop\BaseImageCMSController;
 use app\models\CategorySearch;
 
-class CategoryController extends Controller
+class CategoryController extends BaseImageCMSController
 {
     public function actionIndex($identifier=null)
     {
@@ -13,6 +13,6 @@ class CategoryController extends Controller
     		throw new \yii\web\NotFoundHttpException;
     	}
 
-    	return $this->renderPartial('index', ['category' => $category]);
+    	return $this->renderPartial('category/index', ['category' => $category]);
     }
 }
