@@ -1,23 +1,53 @@
 <?php
 
 require_once('bootstrap.php');
-//require_once '';
 
-class Category extends MY_Controller {
-    public function index() {
-        Yii::$app->runAction('category');
-    }
-    
-    public function create() {
-        $csrf = array(
-            'name' => $this->security->get_csrf_token_name(),
-            'hash' => $this->security->get_csrf_hash()
-        );
+/**
+ * Controller for front-end (Category)
+ */
 
-        Yii::$app->runAction('category/create');
+class Category extends MY_Controller
+{
+    private $identifier = null;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if (strpos($_SERVER['PATH_INFO'], '/bshop/category/list')) {
+            $this->viewList();
+        } else {
+            $this->identifier = str_replace('/bshop/category/', '', $_SERVER['PATH_INFO']);
+            $this->view();
+        }
+
     }
-    
-    public function update() {
-        Yii::$app->runAction('category/update', $this->input->get());
+
+    public function view()
+    {
+        $response = Yii::$app->runAction('shop/category/index', ['identifier' => $this->identifier]);
+        $this->processResponse($response);
+
+    }
+
+    public function viewList()
+    {
+
+    }
+
+    protected function processResponse($response)
+    {
+        if (is_string($response)) {
+              \CMSFactory\assetManager::create()
+               ->setData(
+                   ['content' => $response]
+               )
+           ->render('template/layout/main');
+           exit;
+        }
+
+        if (is_object($response)) {
+            $response->send();
+        }
     }
 }

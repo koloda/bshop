@@ -76,4 +76,22 @@ class CategorySearch extends Category
 
         return $dataProvider;
     }
+
+    /**
+     * Find model by slug or id
+     *
+     * @param  mixed $identifier Category slug or id
+     * @return Category
+     */
+    public static function identify($identifier)
+    {
+        // var_dump($identifier);exit;
+        if (is_numeric($identifier)) {
+            $category = Category::findOne($identifier);
+        } else {
+            $category = Category::findOne(['slug' => $identifier]);
+        }
+
+        return $category;
+    }
 }

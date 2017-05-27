@@ -11,7 +11,7 @@ class Bshop extends BaseAdminController
         parent::__construct();
 
         $pos = strpos($_SERVER['PATH_INFO'], 'bshop');
-        $this->path = substr($_SERVER['PATH_INFO'], $pos+5)?:'shop/products/index';
+        $this->path = substr($_SERVER['PATH_INFO'], $pos+5)?:'shop/category/index';
     }
 
     /**
@@ -34,5 +34,10 @@ class Bshop extends BaseAdminController
         if (is_object($response)) {
             $response->send();
         }
+    }
+
+    public function category()
+    {
+        echo '333333';
     }
 }
