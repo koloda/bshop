@@ -26,7 +26,7 @@ class Category extends MY_Controller
     {
         $response = Yii::$app->runAction('shop/category/index', ['identifier' => $this->identifier]);
         $this->processResponse($response);
-
+        exit;
     }
 
     public function viewList()
@@ -47,6 +47,7 @@ class Category extends MY_Controller
 
         if (is_object($response)) {
             $response->send();
+            exit;
         }
     }
 }

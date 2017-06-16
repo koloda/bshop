@@ -30,6 +30,7 @@ use zxbodya\yii2\galleryManager\GalleryBehavior;
  */
 class Product extends \yii\db\ActiveRecord implements \pistol88\cart\interfaces\CartElement
 {
+    private $urlBase = 'product';
     use CartElementTrait;
     /**
      * @inheritdoc
@@ -177,5 +178,10 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\cart\interfaces\
     public function getBrandTitle()
     {
         return $this->brand->title;
+    }
+
+    public function getUrl()
+    {
+        return '/bshop/' . $this->urlBase . '/' . $this->slug?:$this->id;
     }
 }
