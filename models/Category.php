@@ -94,22 +94,6 @@ class Category extends AActiveRecord
     /**
     * @return \yii\db\ActiveQuery
     */
-    public function getProducts()
-    {
-        return $this->hasMany(Product::className(), ['category_id' => 'id']);
-    }
-
-    /**
-    * @return \yii\db\ActiveQuery
-    */
-    public function getParent()
-    {
-        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
-    }
-
-    /**
-    * @return \yii\db\ActiveQuery
-    */
     public function getParentTitle()
     {
         return $this->parent->title;
