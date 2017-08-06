@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": ">=5.4.0",
@@ -31,7 +31,8 @@
         "zxbodya/yii2-gallery-manager": "*@dev",
         "wbraganca/yii2-dynamicform": "dev-master",
         "dixonstarter/yii2-toggle-column": "*",
-	"pistol88/yii2-cart": "@dev"
+	"pistol88/yii2-cart": "@dev",
+        "kartik-v/yii2-widget-rating": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -215,9 +215,27 @@ a.desc:after {
     color: #f6bb42;
 }
 
+/* typography */
+.text-small {
+    font-size: 80%;
+}
 
+.text-ligth {
+    color: #999;
+}
 
+.text-italic {
+    font-style: italic;
+}
 
+/* editable */
+.editable-click {
+    cursor: pointer;
+}
+
+.editable-popup>.arrow {
+    left: 9% !important;
+}
 
 
 /*  IMAGECMS COMPAT CSS */

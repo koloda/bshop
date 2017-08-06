@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 use kartik\grid\GridView;
 
+use app\services\ProductService as PS;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -31,18 +33,39 @@ $this->title = Yii::t('bshop', 'Products');
 
                 'columns' => [
                     [
+                        'content'   => function($model) {
+                            $img = Html::img($model->getImgSrc('picture', 60));
+                            $a = Html::a($img, ['/product/update', 'id' => $model->id]);
+                            return "<div class=\"text-center\">{$a}</img>";
+                        },
+                    ],
+                    [
                         'attribute' => 'title',
                         'content' => function ($model) {
                             $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
-                            return Html::a($text, ['/product/update', 'id' => $model->id]);
+                            $a = Html::a($text, ['/product/update', 'id' => $model->id]);
+                            $sku = Yii::t('bshop', 'Sku') .': ';
+                            $sku .= strlen($model->sku) ? $model->sku : '---';
+                            $slug = Yii::t('bshop', 'Slug') .': ';
+                            $slug .= strlen($model->slug) ? '/'. $model->slug : '---';
+                            $skuClass = strlen($model->sku) ? '' : 'text-ligth text-italic';
+                            $slugClass = strlen($model->slug) ? '' : 'text-ligth text-italic';
+                            return "{$a}<br/><small class=\"{$skuClass}\">{$sku}</small>"
+                                ."<br/><small class=\"{$slugClass}\">{$slug}</small>";
                         }
                     ],
                     [
                         'attribute' => 'categoryTitle',
-                        'label'    => Yii::t('bshop', 'Category'),
+                        'value'   => function ($model) {
+                            return PS::getCategoryTitle($model);
+                        },
+                        'label'     => Yii::t('bshop', 'Category'),
                     ],
                     [
                         'attribute' => 'brandTitle',
+                        'value'   => function ($model) {
+                            return PS::getBrandTitle($model);
+                        },
                         'label'    => Yii::t('bshop', 'Brand'),
                     ],
                     [
@@ -52,8 +75,14 @@ $this->title = Yii::t('bshop', 'Products');
                         'url' => ['editable'],
                         'type' => 'number',
                         'editableOptions' => [
-                            'mode' => 'inline',
+                            // 'mode' => 'inline',
                         ]
+                    ],
+                    [
+                        'attribute' => 'active',
+                        // 'class' => '\dixonstarter\togglecolumn\ToggleColumn',
+                        // 'options' => ['class' => 'col-sm-1'],
+                        // 'linkTemplateOff' => '<a class="toggle-column btn btn-warning btn-xs btn-block" data-pjax="0" href="{url}"><i  class="glyphicon glyphicon-remove"></i> {label}</a>'
                     ],
                     [
                         'class' => 'kartik\grid\ActionColumn',

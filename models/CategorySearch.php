@@ -13,7 +13,7 @@ class CategorySearch extends Category
 {
     public function attributes()
     {
-        return ['title', 'parentTitle'];
+        return ['title', 'parentTitle', 'active', 'slug'];
     }
 
     /**
@@ -22,7 +22,7 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['title', 'parentTitle'], 'safe'],
+            [['active', 'slug', 'title', 'parentTitle'], 'safe'],
         ];
     }
 
@@ -52,6 +52,15 @@ class CategorySearch extends Category
             'query' => $query,
         ]);
 
+        $query->joinWith(['parent' => function($query) {
+            $query->from(['parent' => parent::tableName()]);
+        }]);
+
+        $dataProvider->sort->attributes['parentTitle'] = [
+            'asc' => [parent::tableName().'.title' => SORT_ASC],
+            'desc' => [parent::tableName().'.title' => SORT_DESC],
+        ];
+
         $this->load($params);
 
         if (!$this->validate()) {
@@ -60,19 +69,10 @@ class CategorySearch extends Category
             return $dataProvider;
         }
 
-        $query->joinWith(['parent' => function($query) {
-            $query->from(['parent' => parent::tableName()]);
-        }]);
-
         // grid filtering conditions
         $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', '{{%category}}.slug', $this->slug]);
         $query->andFilterWhere(['like', 'parent.title', $this->parentTitle]);
-
-
-        $dataProvider->sort->attributes['parentTitle'] = [
-            'asc' => ['parent.title' => SORT_ASC],
-            'desc' => ['parent.title' => SORT_DESC],
-        ];
 
         return $dataProvider;
     }
@@ -85,13 +85,12 @@ class CategorySearch extends Category
      */
     public static function identify($identifier)
     {
-        // var_dump($identifier);exit;
         if (is_numeric($identifier)) {
-            $category = Category::findOne($identifier);
+            $model = Category::findOne($identifier);
         } else {
-            $category = Category::findOne(['slug' => $identifier]);
+            $model = Category::findOne(['slug' => $identifier]);
         }
 
-        return $category;
+        return $model;
     }
 }

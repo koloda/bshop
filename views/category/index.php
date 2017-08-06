@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use kartik\grid\GridView;
+use app\services\CategoryService as CS;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -37,7 +38,14 @@ $this->title = Yii::t('bshop', 'Categories');
                 ],
                 [
                     'attribute' => 'parentTitle',
+                    'value' => function($model) { return $model->getParentTitle(); },
                     'label'    => Yii::t('bshop', 'Parent category'),
+                ],
+                [
+                    'attribute' => 'slug',
+                    'value' => function ($model) {
+                        return strlen($model->slug)? '/'.$model->slug : '';
+                    }
                 ],
                 [
                     'attribute' => 'active',

@@ -51,7 +51,7 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\cart\interfaces\
                     "picture"   => [
                         'cropSize'  => 960,
                         'aspectRatio'   => 1,
-                        'sizeSteps' => 4,
+                        'sizeSteps' => 5,
                         'allowTooSmall'  => true
                     ],
                 ],

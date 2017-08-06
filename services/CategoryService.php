@@ -19,15 +19,6 @@ class CategoryService extends BaseModelService
     * @param Category
     * @return \yii\db\ActiveQuery
     */
-    public static function getParent($category)
-    {
-        return $category->hasOne(Category::className(), ['id' => 'parent_id']);
-    }
-
-    /**
-    * @param Category
-    * @return \yii\db\ActiveQuery
-    */
     public function getProducts($category)
     {
         return $category->hasMany(Product::className(), ['category_id' => 'id']);

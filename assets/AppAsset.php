@@ -20,9 +20,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/bootflat.min.css',
         'css/site.css',
-        //'css/AdminLTE.css',
-        //'css/paper.bootstrap.min.css',
-        
+        // 'css/AdminLTE.css',
+        // 'css/paper.bootstrap.min.css',
     ];
     public $js = [
     ];

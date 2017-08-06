@@ -45,26 +45,13 @@ AppAsset::register($this);
             ['label' => 'Brands', 'url' => ['/brand']],
             ['label' => 'Product properties', 'url' => ['/property']],
 
-            ['label' => 'Home', 'url' => ['/site/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
         ],
     ]);
     NavBar::end();
     ?>
 
     <div class="container">
-        <?php 
+        <?php
             /*echo Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ])*/ ?>

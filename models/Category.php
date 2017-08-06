@@ -94,6 +94,14 @@ class Category extends AActiveRecord
     /**
     * @return \yii\db\ActiveQuery
     */
+    public static function getParent()
+    {
+        return self::hasOne(Category::className(), ['id' => 'parent_id']);
+    }
+
+    /**
+    * @return \yii\db\ActiveQuery
+    */
     public function getParentTitle()
     {
         return $this->parent->title;

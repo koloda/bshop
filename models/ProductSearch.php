@@ -12,6 +12,9 @@ use app\models\Product;
  */
 class ProductSearch extends Product
 {
+    public $categoryTitle;
+    public $brandTitle;
+
     /**
      * @inheritdoc
      */
@@ -19,7 +22,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'category_id', 'available', 'active', 'brand_id', 'gallery_id', 'updated_at', 'created_at'], 'integer'],
-            [['title', 'description', 'sku', 'picture', 'slug'], 'safe'],
+            [['title', 'description', 'sku', 'picture', 'slug', 'categoryTitle', 'brandTitle'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -43,12 +46,22 @@ class ProductSearch extends Product
     public function search($params)
     {
         $query = Product::find();
-
-        // add conditions that should always apply here
+        $query->joinWith('category');
+        $query->joinWith('brand');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        //grid sorting
+        $dataProvider->sort->attributes['categoryTitle'] = [
+            'asc'   => ['{{%category}}.title' => SORT_ASC],
+            'desc'  => ['{{%category}}.title' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['brandTitle'] = [
+            'asc'   => ['{{%brand}}.title' => SORT_ASC],
+            'desc'  => ['{{%brand}}.title' => SORT_DESC]
+        ];
 
         $this->load($params);
 
@@ -75,8 +88,27 @@ class ProductSearch extends Product
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'sku', $this->sku])
             ->andFilterWhere(['like', 'picture', $this->picture])
-            ->andFilterWhere(['like', 'slug', $this->slug]);
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', '{{%category}}.title', $this->categoryTitle])
+            ->andFilterWhere(['like', '{{%brand}}.title', $this->brandTitle]);
 
         return $dataProvider;
+    }
+
+    /**
+     * Find model by slug or id
+     *
+     * @param  mixed $identifier Product slug or id
+     * @return Product
+     */
+    public static function identify($identifier)
+    {
+        if (is_numeric($identifier)) {
+            $model = Product::findOne($identifier);
+        } else {
+            $model = Product::findOne(['slug' => $identifier]);
+        }
+
+        return $model;
     }
 }
