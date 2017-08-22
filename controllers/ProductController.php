@@ -34,17 +34,11 @@ class ProductController extends Controller
                 'modelClass' => Product::className(),
                 'forceCreate' => false
             ],
-            'toggle' => [
-                'class' => ToggleAction::className(),
-                'modelClass' => Product::className(),
-                'onValue' => 1,
-                'offValue' => 0
-            ],
-            // 'toggle-update'=>[
-            //     'class'=>'\dixonstarter\togglecolumn\actions\ToggleAction',
-            //     'modelClass'=> Product::className(),
-            //     'attribute' => 'active'
-            // ]
+            'toggle-update'=>[
+                'class'=>'\dixonstarter\togglecolumn\actions\ToggleAction',
+                'modelClass'=> Product::className(),
+                'attribute' => 'active'
+            ]
         ];
     }
 

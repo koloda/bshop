@@ -189,11 +189,18 @@ a.desc:after {
 }
 
 /*  admin-side panels */
+.panel {
+    -webkit-box-shadow: 0 6px 30px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 6px 30px rgba(0,0,0,.2);
+    box-shadow: 0 6px 30px rgba(0,0,0,.2);
+}
+
 .panel-heading>p {
     width: 100%;
     padding: 0;
+    margin: 0px;
     font-size: 21px;
-    line-height: inherit;
+    line-height: 1.6;
     color: #333;
 }
 
@@ -228,6 +235,10 @@ a.desc:after {
     font-style: italic;
 }
 
+.text-underlined, .text-underlined:hover {
+    text-decoration: underline;
+}
+
 /* editable */
 .editable-click {
     cursor: pointer;
@@ -237,6 +248,16 @@ a.desc:after {
     left: 9% !important;
 }
 
+td a.editable.editable-click {
+    width: 50%;
+    padding: 0px;
+    text-align: center;
+}
+
+/* table */
+.kv-grid-table>tbody>tr>td {
+    vertical-align: middle;
+}
 
 /*  IMAGECMS COMPAT CSS */
 /*admin-header*/

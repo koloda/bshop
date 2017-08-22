@@ -77,20 +77,16 @@ class ProductSearch extends Product
             'price' => $this->price,
             'category_id' => $this->category_id,
             'available' => $this->available,
-            'active' => $this->active,
             'brand_id' => $this->brand_id,
             'gallery_id' => $this->gallery_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'sku', $this->sku])
-            ->andFilterWhere(['like', 'picture', $this->picture])
-            ->andFilterWhere(['like', 'slug', $this->slug])
+        $query->andFilterWhere(['like', '{{%product}}.title', $this->title])
             ->andFilterWhere(['like', '{{%category}}.title', $this->categoryTitle])
-            ->andFilterWhere(['like', '{{%brand}}.title', $this->brandTitle]);
+            ->andFilterWhere(['like', '{{%brand}}.title', $this->brandTitle])
+            ->andFilterWhere(['=', '{{%product}}.active', $this->active]);
 
         return $dataProvider;
     }

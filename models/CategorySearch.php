@@ -52,7 +52,7 @@ class CategorySearch extends Category
             'query' => $query,
         ]);
 
-        $query->joinWith(['parent' => function($query) {
+        $query->joinWith(['parent' => function ($query) {
             $query->from(['parent' => parent::tableName()]);
         }]);
 
@@ -70,9 +70,10 @@ class CategorySearch extends Category
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', '{{%category}}.title', $this->title]);
         $query->andFilterWhere(['like', '{{%category}}.slug', $this->slug]);
         $query->andFilterWhere(['like', 'parent.title', $this->parentTitle]);
+        $query->andFilterWhere(['=', '{{%category}}.active', $this->active]);
 
         return $dataProvider;
     }

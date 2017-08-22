@@ -33,7 +33,7 @@ $this->title = Yii::t('bshop', 'Products');
 
                 'columns' => [
                     [
-                        'content'   => function($model) {
+                        'content'   => function ($model) {
                             $img = Html::img($model->getImgSrc('picture', 60));
                             $a = Html::a($img, ['/product/update', 'id' => $model->id]);
                             return "<div class=\"text-center\">{$a}</img>";
@@ -43,7 +43,7 @@ $this->title = Yii::t('bshop', 'Products');
                         'attribute' => 'title',
                         'content' => function ($model) {
                             $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
-                            $a = Html::a($text, ['/product/update', 'id' => $model->id]);
+                            $a = Html::a($text, ['/product/update', 'id' => $model->id], ['class' => 'text-underlined']);
                             $sku = Yii::t('bshop', 'Sku') .': ';
                             $sku .= strlen($model->sku) ? $model->sku : '---';
                             $slug = Yii::t('bshop', 'Slug') .': ';
@@ -80,9 +80,9 @@ $this->title = Yii::t('bshop', 'Products');
                     ],
                     [
                         'attribute' => 'active',
-                        // 'class' => '\dixonstarter\togglecolumn\ToggleColumn',
-                        // 'options' => ['class' => 'col-sm-1'],
-                        // 'linkTemplateOff' => '<a class="toggle-column btn btn-warning btn-xs btn-block" data-pjax="0" href="{url}"><i  class="glyphicon glyphicon-remove"></i> {label}</a>'
+                        'class' => '\dixonstarter\togglecolumn\ToggleColumn',
+                        'options' => ['class' => 'col-sm-1'],
+                        'linkTemplateOff' => '<a class="toggle-column btn btn-warning btn-xs btn-block" data-pjax="0" href="{url}"><i  class="glyphicon glyphicon-remove"></i> {label}</a>'
                     ],
                     [
                         'class' => 'kartik\grid\ActionColumn',
