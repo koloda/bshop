@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PropertySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -17,7 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ' . Yii::t('bshop', 'Create Property'), ['create'], ['class' => 'btn btn-success pull-right']) ?>
             </p>
         </div>
+    </div>
 
+    <div class="panel">
         <div class="panel-body">
         <?php Pjax::begin(); ?>
         <?= GridView::widget([
@@ -32,11 +35,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'content' => function ($model) {
                     $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
                     return Html::a($text, ['/property/update', 'id' => $model->id]);
-                }
+                },
+                'filterInputOptions'    => [
+                    'type'  => 'search',
+                    'class' => 'form-control'
+                ]
             ],
             [
                 'header'    => Yii::t('bshop', 'Property values'),
-                'content' => function($model) {
+                'content' => function ($model) {
                     $text = '';
                     foreach ($model->propertyValues as $v) {
                         $text .= "<span class=\"badge\">{$v->value}</span> ";

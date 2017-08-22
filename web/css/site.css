@@ -259,6 +259,16 @@ td a.editable.editable-click {
     vertical-align: middle;
 }
 
+/*search-input*/
+
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+input[type="search"]::-webkit-search-results-button {
+    -webkit-appearance: searchfield-results-button;
+}
+
 /*  IMAGECMS COMPAT CSS */
 /*admin-header*/
 #bshop-admin-navbar {

@@ -34,18 +34,30 @@ $this->title = Yii::t('bshop', 'Categories');
                     'content' => function ($model) {
                         $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
                         return Html::a($text, ['/category/update', 'id' => $model->id]);
-                    }
+                    },
+                    'filterInputOptions'    => [
+                        'type'  => 'search',
+                        'class' => 'form-control'
+                    ]
                 ],
                 [
                     'attribute' => 'parentTitle',
-                    'value' => function($model) { return $model->getParentTitle(); },
-                    'label'    => Yii::t('bshop', 'Parent category'),
+                    'value' => function ($model) { return $model->getParentTitle(); },
+                    'label' => Yii::t('bshop', 'Parent category'),
+                    'filterInputOptions'    => [
+                        'type'  => 'search',
+                        'class' => 'form-control'
+                    ]
                 ],
                 [
                     'attribute' => 'slug',
                     'value' => function ($model) {
                         return strlen($model->slug)? '/'.$model->slug : '';
-                    }
+                    },
+                    'filterInputOptions'    => [
+                        'type'  => 'search',
+                        'class' => 'form-control'
+                    ]
                 ],
                 [
                     'attribute' => 'active',

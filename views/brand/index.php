@@ -35,13 +35,21 @@ $this->title = Yii::t('bshop', 'Brands');
                         'content' => function ($model) {
                             $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
                             return Html::a($text, ['/brand/update', 'id' => $model->id]);
-                        }
+                        },
+                        'filterInputOptions'    => [
+                            'type'  => 'search',
+                            'class' => 'form-control'
+                        ]
                     ],
                     [
                         'attribute' => 'slug',
-                        'content' => function($model) {
+                        'content' => function ($model) {
                             return '/' . $model->slug;
-                        }
+                        },
+                        'filterInputOptions'    => [
+                            'type'  => 'search',
+                            'class' => 'form-control'
+                        ]
                     ],
                     [
                         'attribute' => 'active',

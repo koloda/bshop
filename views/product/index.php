@@ -52,7 +52,11 @@ $this->title = Yii::t('bshop', 'Products');
                             $slugClass = strlen($model->slug) ? '' : 'text-ligth text-italic';
                             return "{$a}<br/><small class=\"{$skuClass}\">{$sku}</small>"
                                 ."<br/><small class=\"{$slugClass}\">{$slug}</small>";
-                        }
+                        },
+                        'filterInputOptions'    => [
+                            'type'  => 'search',
+                            'class' => 'form-control'
+                        ]
                     ],
                     [
                         'attribute' => 'categoryTitle',
@@ -60,6 +64,10 @@ $this->title = Yii::t('bshop', 'Products');
                             return PS::getCategoryTitle($model);
                         },
                         'label'     => Yii::t('bshop', 'Category'),
+                        'filterInputOptions'    => [
+                            'type'  => 'search',
+                            'class' => 'form-control'
+                        ]
                     ],
                     [
                         'attribute' => 'brandTitle',
@@ -67,6 +75,10 @@ $this->title = Yii::t('bshop', 'Products');
                             return PS::getBrandTitle($model);
                         },
                         'label'    => Yii::t('bshop', 'Brand'),
+                        'filterInputOptions'    => [
+                            'type'  => 'search',
+                            'class' => 'form-control'
+                        ]
                     ],
                     [
                         'options'   => ['class' => 'col-sm-1'],
@@ -76,6 +88,10 @@ $this->title = Yii::t('bshop', 'Products');
                         'type' => 'number',
                         'editableOptions' => [
                             // 'mode' => 'inline',
+                        ],
+                        'filterInputOptions'    => [
+                            'type'  => 'search',
+                            'class' => 'form-control'
                         ]
                     ],
                     [
