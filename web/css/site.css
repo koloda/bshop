@@ -1,8 +1,8 @@
 html,
 body {
     height: 100%;
-    background: rgb(251, 252, 256);
-    background-color: rgb(251, 252, 256);
+    background: rgb(251, 252, 255);
+    background-color: rgb(251, 252, 255);
 }
 
 .wrap > .container {
@@ -203,6 +203,7 @@ a.desc:after {
     margin-left: -1%;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+    transition: all 0.4s ease-in-out;
 }
 
 .sidebar-menu.affix {
@@ -300,11 +301,15 @@ input[type="search"]::-webkit-search-results-button {
     color: #222;
     padding-top: 11px;
     padding-bottom: 11px;
-    transition: all 0.3s ease-in-out;
-    border-bottom: 1px solid #ddd;
+    transition: all 0.1s ease-in-out;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 1.25em;
 }
-#bshop-admin-navbar li a:hover,  #bshop-admin-navbar li.active a {
-    background-color: rgb(251, 252, 256);
+#bshop-admin-navbar li a:hover {
+    background-color: rgba(251, 252, 255, .7);
+}
+#bshop-admin-navbar li.active a {
+    background-color: rgb(251, 252, 255);
     box-shadow: 0px 0px 20px rgba(0,0,0,.1);
     font-weight: bold;
 }

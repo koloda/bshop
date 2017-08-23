@@ -48,6 +48,7 @@ class CategoryController extends Controller
     {
         $searchModel = new \app\models\CategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->getPagination()->pageSize = 10;
 
         return  $this->render('index', [
             'searchModel'   => $searchModel,

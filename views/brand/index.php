@@ -12,7 +12,7 @@ $this->title = Yii::t('bshop', 'Brands');
 ?>
 
 <div class="brand-index col-xs-12">
-    <div class="panel">
+    <div class="panel" data-spy="affix" data-offset-top="0">
         <div class="panel-heading">
             <p><?= Html::encode($this->title) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ' . Yii::t('bshop', 'Create Brand'), ['/brand/create'], ['class' => 'btn btn-success pull-right']) ?>

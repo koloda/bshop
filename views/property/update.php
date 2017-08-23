@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = Yii::t('bshop', 'Update');
 <div class="property-update">
 
     <div class="col-xs-12">
-    <div class="panel">
+    <div class="panel" data-spy="affix" data-offset-top="0">
         <div class="panel-heading">
             <p>
                 <?= Html::encode($this->title) ?>

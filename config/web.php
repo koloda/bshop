@@ -1,13 +1,15 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
-
 $config = [
     'id' => 'basic',
     'language'  => 'uk-UA',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'assetManager'  => [
+            // 'bundles' => require(realpath(__DIR__ .'/../assets/compressedAsset.php'))
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Z4PXrHdBz1SAjiGYCisAIeli-E7fRMfP',

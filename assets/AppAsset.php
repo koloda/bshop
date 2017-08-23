@@ -20,11 +20,10 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/bootflat.min.css',
         'css/site.css',
-        'css/navbar-fixed-side.css'
+        'css/navbar-fixed-side.css',
+        'css/font-awesome.min.css'
         // 'css/AdminLTE.css',
         // 'css/paper.bootstrap.min.css',
-    ];
-    public $js = [
     ];
     public $depends = [
         'yii\web\YiiAsset',

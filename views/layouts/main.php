@@ -35,30 +35,31 @@ AppAsset::register($this);
                             'brandLabel' => false,
                             'brandUrl' => false,
                             'options' => [
-                            'class' => 'navbar-inverse navbar-fixed-side',
-                            'id'    => 'bshop-admin-navbar'
-                            ],
+                                'class' => 'navbar-inverse navbar-fixed-side',
+                                'id'    => 'bshop-admin-navbar'
+                            ]
                         ]);
                     echo Nav::widget([
+                        'encodeLabels'  => false,
                         'options' => ['class' => 'navbar-nav', 'activateItems' => true],
                         'items' => [
                         [
-                        'label' => 'Products',
+                        'label' => '<i class="fa fa-shopping-bag"></i> ' . Yii::t('app', 'Products'),
                         'url' => ['/product'],
                         'active' => strpos($this->context->route, 'product') === 0
                         ],
                         [
-                        'label' => 'Categories',
+                        'label' => '<i class="fa fa-th-list"></i> ' . Yii::t('app', 'Categories'),
                         'url' => ['/category'],
                         'active' => strpos($this->context->route, 'category') === 0
                         ],
                         [
-                        'label' => 'Brands',
+                        'label' => '<i class="fa fa-industry"></i> ' . Yii::t('app', 'Brands'),
                         'url' => ['/brand'],
                         'active' => strpos($this->context->route, 'brand') === 0
                         ],
                         [
-                        'label' => 'Product properties',
+                        'label' => '<i class="fa fa-list-alt"></i> ' . Yii::t('app', 'Product properties'),
                         'url' => ['/property'],
                         'active' => strpos($this->context->route, 'property') === 0
                         ],

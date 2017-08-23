@@ -13,7 +13,7 @@ $this->title = Yii::t('bshop', 'Update {modelClass}: ', [
 <div class="product-update">
 
     <div class="col-xs-12">
-        <div class="panel">
+        <div class="panel" data-spy="affix" data-offset-top="0">
             <div class="panel-heading">
                 <p><?= Html::encode($this->title) ?>
                 <?= Html::a('<i class="glyphicon glyphicon-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/product'], ['class' => 'btn btn-default pull-right']) ?>

@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Property */
 
@@ -13,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="property-create">
 
     <div class="col-xs-12">
-    <div class="panel">
+    <div class="panel" data-spy="affix" data-offset-top="0">
         <div class="panel-heading">
             <p>
                 <?= Html::encode($this->title) ?>
