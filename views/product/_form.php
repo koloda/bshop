@@ -106,7 +106,7 @@ use zxbodya\yii2\galleryManager\GalleryManager;
                     <?=
                             $form->field($model, 'slug', [
                                 'addon' => [
-                                    'prepend' => ['content' => '<i class="glyphicon glyphicon-globe"></i> http://sitename.com/product/']
+                                    'prepend' => ['content' => '<i class="fa fa-globe"></i> http://sitename.com/product/']
                                 ]
                             ])
                             ->widget(

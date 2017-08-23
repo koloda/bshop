@@ -73,7 +73,7 @@ $form = ActiveForm::begin([
                     <?=
                             $form->field($model, 'slug', [
                                 'addon' => [
-                                    'prepend' => ['content' => '<i class="glyphicon glyphicon-globe"></i> http://sitename.com/category/']
+                                    'prepend' => ['content' => '<i class="fa fa-globe"></i> http://sitename.com/category/']
                                 ]
                             ])
                             ->widget(

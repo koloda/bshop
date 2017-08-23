@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = Yii::t('bshop', 'Update');
 
                 <?= Html::submitButton('<i class="fa fa-floppy-o"></i> ' . Yii::t('bshop', 'Update'), ['class' => 'btn btn-info pull-right m_l-1em', 'form' => 'category-form']) ?>
 
-                <?= Html::a('<i class="glyphicon glyphicon-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/category'], ['class' => 'btn btn-default pull-right']) ?>
+                <?= Html::a('<i class="fa fa-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/category'], ['class' => 'btn btn-default pull-right']) ?>
                 </p>
             </div>
         </div>

@@ -56,7 +56,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'active',
                 'class' => '\dixonstarter\togglecolumn\ToggleColumn',
                 'options' => ['class' => 'col-sm-1'],
-                'linkTemplateOff' => '<a class="toggle-column btn btn-warning btn-xs btn-block" data-pjax="0" href="{url}"><i  class="glyphicon glyphicon-remove"></i> {label}</a>'
+                'linkTemplateOff' => '<a class="toggle-column btn btn-warning btn-xs btn-block" data-pjax="1" href="{url}"><i  class="fa fa-remove"></i> {label}</a>',
+                'linkTemplateOn' => '<a class="toggle-column btn btn-primary btn-xs btn-block" data-pjax="1" href="{url}"><i  class="fa fa-check"></i> {label}</a>'
             ],
             [
                 'class' => 'kartik\grid\ActionColumn',

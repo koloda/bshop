@@ -11,10 +11,10 @@
 
             <div class="col-sm-3">
                 <a href="/" target="_blank" class="bshop-menu-a-icon pull-right">
-                    <i class="glyphicon glyphicon-new-window"></i>
+                    <i class="fa fa-sign-out"></i>
                 </a>
                 <a data-toggle="dropdown" class="dropdown-toggle bshop-menu-a-icon pull-right">
-                    <i class="glyphicon glyphicon-user"></i>
+                    <i class="fa fa-user-o"></i>
                 </a>
                 <ul class="frame-dropdown dropdown-menu drop_menu_black pull-right">
 
