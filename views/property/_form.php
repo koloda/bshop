@@ -63,10 +63,10 @@ use yii\jui\JuiAsset;
                             </tr>
                         </thead>
                         <tbody class="form-options-body">
-                        <?php foreach ($valueModels as $index => $pv): ?>
+                        <?php foreach ($valueModels as $index => $pv) : ?>
                                 <tr class="form-options-item">
                                     <td class="sortable-handle text-center vcenter" style="cursor: move;">
-                                        <i class="glyphicon glyphicon-resize-vertical" style="font-size: 24px;"></i>
+                                        <i class="fa fa-arrows-v" style="font-size: 24px;"></i>
                                     </td>
                                     <td class="vcenter">
                                         <?= $form->field($pv, "[{$index}]value")->label(false)->textInput(['maxlength' => 128]); ?>
@@ -74,7 +74,7 @@ use yii\jui\JuiAsset;
                                         <input type="hidden" name="PropertyValue[<?= $index ?>][id]" value="<?=$pv->id?>">
                                     </td>
                                     <td class="text-center vcenter">
-                                        <button type="button" class="delete-item btn btn-danger btn-sm" tabindex="-1"><i class="glyphicon glyphicon-minus"></i></button>
+                                        <button type="button" class="delete-item btn btn-danger btn-sm" tabindex="-1"><i class="fa fa-minus"></i></button>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>
@@ -84,7 +84,7 @@ use yii\jui\JuiAsset;
                                 <td colspan="2"></td>
                                 <td class="text-center vcenter">
                                     <button type="button" class="add-item btn btn-success btn-sm">
-                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <i class="fa fa-plus"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -102,10 +102,6 @@ use yii\jui\JuiAsset;
             <?= $form->field($model, 'active')->widget(SwitchInput::className()) ?>
             </div>
         </div>
-    </div>
-
-    <div class="form-group col-sm-12">
-    <?= Html::submitButton($model->isNewRecord ? Yii::t('bshop', 'Create') : Yii::t('bshop', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?= form_csrf() ?>

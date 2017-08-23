@@ -16,6 +16,9 @@ $this->title = Yii::t('bshop', 'Update {modelClass}: ', [
         <div class="panel" data-spy="affix" data-offset-top="0">
             <div class="panel-heading">
                 <p><?= Html::encode($this->title) ?>
+
+                <?= Html::submitButton('<i class="fa fa-floppy-o"></i> ' . Yii::t('bshop', 'Update'), ['class' => 'btn btn-info pull-right m_l-1em', 'form' => 'product-form']) ?>
+
                 <?= Html::a('<i class="glyphicon glyphicon-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/product'], ['class' => 'btn btn-default pull-right']) ?>
                 </p>
             </div>

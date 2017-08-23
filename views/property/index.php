@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel" data-spy="affix" data-offset-top="0">
         <div class="panel-heading">
             <p><?= Html::encode($this->title) ?>
-            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ' . Yii::t('bshop', 'Create Property'), ['create'], ['class' => 'btn btn-success pull-right']) ?>
+            <?= Html::a('<i class="fa fa-plus"></i> ' . Yii::t('bshop', 'Create Property'), ['create'], ['class' => 'btn btn-success pull-right']) ?>
             </p>
         </div>
     </div>
@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'title',
                 'content' => function ($model) {
-                    $text = $model->title . ' <i class="glyphicon glyphicon-pencil"></i>';
-                    return Html::a($text, ['/property/update', 'id' => $model->id]);
+                    $text = $model->title . ' <i class="fa fa-pencil"></i>';
+                    return Html::a($text, ['/property/update', 'id' => $model->id], ['class' => 'text-underlined']);
                 },
                 'filterInputOptions'    => [
                     'type'  => 'search',

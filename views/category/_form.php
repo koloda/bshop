@@ -15,7 +15,8 @@ use kartik\widgets\Select2;
 <?php
 $form = ActiveForm::begin([
             'options' => [
-                'enctype' => 'multipart/form-data'
+                'enctype'   => 'multipart/form-data',
+                'id'        => 'category-form'
             ]
         ]);
 ?>
@@ -105,10 +106,6 @@ $form = ActiveForm::begin([
                 ]) ?>
             </div>
         </div>
-    </div>
-
-    <div class="form-group col-sm-12">
-    <?= Html::submitButton($model->isNewRecord ? Yii::t('bshop', 'Create') : Yii::t('bshop', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 <?=form_csrf()?>
 <?php ActiveForm::end(); ?>

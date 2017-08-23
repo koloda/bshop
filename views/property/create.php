@@ -16,7 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-heading">
             <p>
                 <?= Html::encode($this->title) ?>
-                <?= Html::a('<i class="glyphicon glyphicon-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/property'], ['class' => 'btn btn-default pull-right']) ?>
+
+                <?= Html::submitButton('<i class="fa fa-floppy-o"></i> ' . Yii::t('bshop', 'Create'), [
+                    'class' => 'btn btn-success pull-right m_l-1em',
+                    'form'  => 'property-form'
+                    ]) ?>
+                <?= Html::a('<i class="fa fa-arrow-left"></i> ' . Yii::t('bshop', 'Back to list'), ['/property'], ['class' => 'btn btn-default pull-right']) ?>
             </p>
         </div>
     </div>

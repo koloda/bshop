@@ -19,7 +19,8 @@ use zxbodya\yii2\galleryManager\GalleryManager;
     <?php
         $form = ActiveForm::begin([
             'options' => [
-                'enctype' => 'multipart/form-data'
+                'enctype' => 'multipart/form-data',
+                'id'    => 'product-form'
             ]
         ]);
     ?>
@@ -185,11 +186,6 @@ use zxbodya\yii2\galleryManager\GalleryManager;
                 ?>
             </div>
         </div>
-    </div>
-
-
-    <div class="form-group col-sm-12">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('bshop', 'Create') : Yii::t('bshop', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?= form_csrf() ?>

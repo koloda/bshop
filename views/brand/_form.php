@@ -15,7 +15,8 @@ use sjaakp\illustrated\Uploader;
     <?php
     $form = ActiveForm::begin([
                 'options' => [
-                    'enctype' => 'multipart/form-data'
+                    'enctype'   => 'multipart/form-data',
+                    'id'        => 'brand-form'
                 ]
     ]);
     ?>
@@ -56,12 +57,10 @@ use sjaakp\illustrated\Uploader;
                     <?=
                             $form->field($model, 'slug', [
                                 'addon' => [
-                                    'prepend' => ['content' => '<i class="glyphicon glyphicon-globe"></i> http://sitename.com/brand/']
+                                    'prepend' => ['content' => '<i class="fa fa-globe"></i> http://sitename.com/brand/']
                                 ]
                             ])
-                            ->widget(
-                                    \modernkernel\slugify\Slugify::className(), ['source' => '#brand-title']
-                            )
+                            ->widget( \modernkernel\slugify\Slugify::className(), ['source' => '#brand-title'])
                     ?>
                 </fieldset>
             </div>
@@ -91,10 +90,6 @@ use sjaakp\illustrated\Uploader;
                 ]) ?>
             </div>
         </div>
-    </div>
-
-    <div class="form-group col-sm-12">
-    <?= Html::submitButton($model->isNewRecord ? Yii::t('bshop', 'Create') : Yii::t('bshop', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?= form_csrf() ?>
