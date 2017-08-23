@@ -192,6 +192,22 @@ a.desc:after {
     -webkit-box-shadow: 0 6px 30px rgba(0,0,0,.2);
     -moz-box-shadow: 0 6px 30px rgba(0,0,0,.2);
     box-shadow: 0 6px 30px rgba(0,0,0,.2);
+    z-index: 1;
+}
+
+/**affix*/
+.panel.affix {
+    top: 0px;
+    width: 81%;
+    z-index: 2;
+    margin-left: -1%;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.sidebar-menu.affix {
+    position: relative;
+    top: -50px;
 }
 
 .panel-heading>p {

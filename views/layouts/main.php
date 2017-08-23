@@ -29,7 +29,7 @@ AppAsset::register($this);
             <div class="row">
                 <?php include 'imagecms_header.php' ?>
 
-                <div class="col-sm-2">
+                <div class="col-sm-2 sidebar-menu" data-spy="affix" data-offset-top="50">
                     <?php
                     NavBar::begin([
                             'brandLabel' => false,
