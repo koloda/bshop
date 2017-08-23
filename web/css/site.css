@@ -11,8 +11,7 @@ body {
 
 .footer {
     height: 60px;
-    /*background-color: #f5f5f5;*/
-    border-top: 1px solid #ddd;
+    background-color: transparent;
     padding-top: 20px;
 }
 
@@ -272,21 +271,24 @@ input[type="search"]::-webkit-search-results-button {
 /*  IMAGECMS COMPAT CSS */
 /*admin-header*/
 #bshop-admin-navbar {
-    min-height: 43px;
-    height: 43px;
-    background: #4d565c;
-    border-top: 1px solid #616b74;
+    box-shadow: inset -2px -20px 30px rgba(0,0,0,0.1);
+    color: #333;
+    background: #e6e6e6;
     border-radius: 0px;
+    border: none;
+}
+#bshop-admin-navbar-collapse {
+    border: none;
 }
 #bshop-admin-navbar li a {
-    border-left: 1px solid #6f787f;
-    color: #fff;
+    color: #222;
     padding-top: 11px;
     padding-bottom: 11px;
     transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #ddd;
 }
-#bshop-admin-navbar li a:hover {
-    background-color: #5b656c;
+#bshop-admin-navbar li a:hover,  #bshop-admin-navbar li.active a {
+    background-color: rgb(241, 242, 246);
 }
 .bshop-menu-a-icon {
     height: 50px;
@@ -315,3 +317,17 @@ header.imgcms {
 header.imgcms .logo>img {
     margin-top: 13px;
 }
+
+/*content*/
+#content {
+    padding-top: 1em;
+}
+
+/*footer*/
+body {
+    padding-bottom: 61px;
+}
+.wrap {
+    min-height: 100%;
+}
+

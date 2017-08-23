@@ -22,50 +22,71 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
+    <?php $this->beginBody() ?>
 
-<div class="wrap">
+    <div class="wrap">
+        <div class="container-fluid clear-top">
+            <div class="row">
+                <?php include 'imagecms_header.php' ?>
 
-    <?php include 'imagecms_header.php' ?>
+                <div class="col-sm-2">
+                    <?php
+                    NavBar::begin([
+                            'brandLabel' => false,
+                            'brandUrl' => false,
+                            'options' => [
+                            'class' => 'navbar-inverse navbar-fixed-side',
+                            'id'    => 'bshop-admin-navbar'
+                            ],
+                        ]);
+                    echo Nav::widget([
+                        'options' => ['class' => 'navbar-nav', 'activateItems' => true],
+                        'items' => [
+                        [
+                        'label' => 'Products',
+                        'url' => ['/product'],
+                        'active' => strpos($this->context->route, 'product') === 0
+                        ],
+                        [
+                        'label' => 'Categories',
+                        'url' => ['/category'],
+                        'active' => strpos($this->context->route, 'category') === 0
+                        ],
+                        [
+                        'label' => 'Brands',
+                        'url' => ['/brand'],
+                        'active' => strpos($this->context->route, 'brand') === 0
+                        ],
+                        [
+                        'label' => 'Product properties',
+                        'url' => ['/property'],
+                        'active' => strpos($this->context->route, 'property') === 0
+                        ],
+                        ],
+                        ]);
+                    NavBar::end();
+                    ?>
+                </div>
 
-    <?php
-    NavBar::begin([
-        'brandLabel' => false,
-        'brandUrl' => false,
-        'options' => [
-            'class' => 'navbar-inverse',
-            'id'    => 'bshop-admin-navbar'
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Products', 'url' => ['/product']],
-            ['label' => 'Categories', 'url' => ['/category']],
-            ['label' => 'Brands', 'url' => ['/brand']],
-            ['label' => 'Product properties', 'url' => ['/property']],
 
-        ],
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?php
-            /*echo Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ])*/ ?>
-        <?= $content ?>
+                <div class="col-sm-10" id="content">
+                    <?= $content ?>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="container-fluid">
+<div class="row">
+    <footer class="footer">
+            <p class="col-sm-2">&copy; My Company <?= date('Y') ?></p>
+
+            <div class="col-sm-10">
+                <p class="pull-right"><?= Yii::powered() ?></p>
+            </div>
+    </footer>
+</div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>

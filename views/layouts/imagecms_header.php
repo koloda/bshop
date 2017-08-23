@@ -1,5 +1,5 @@
 <header class="imgcms">
-    <section class="container">
+    <section class="container-fluid">
             <div class="col-sm-3">
                 <a href="/admin/dashboard" class="logo pull-left">
                     <img src="/templates/administrator/img/logo_new.png">
